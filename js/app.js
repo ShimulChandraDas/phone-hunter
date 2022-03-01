@@ -16,14 +16,19 @@ const displayPhoneDetails = (phones) => {
         const div = document.createElement('div');
         div.innerHTML = ` <div 
             class=" card p-3  border bg-light">
+            <h2>${phone.brand}</h2>
          <div class="pro-pic">
-             <img class="w=25" src="" alt="">
+             <img class="w=25" src="${phone.image}" alt="">
          </div>
-            <h2>Name:</h2>
-            <button class="btn btn-success details-btn">Show Details</button>
+            <h4>${phone.phone_name}</h4>
+            <button onclick="details('helo')" class="btn btn-success details-btn">Show Details</button>
          </div>`;
         parent.appendChild(div);
     }
 
-    console.log(phones);
+    //console.log(phone);
+};
+
+const details = (info) => {
+    console.log('kiked', info)
 }
