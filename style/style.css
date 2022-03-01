@@ -2,4 +2,12 @@
 #spinner{
     display: none;
   }
-  
+  /* wrong data input error handaling   */
+#error-input{
+    display: none;
+  }
+
+/* empty input handalling  */
+#empty-error{
+  display: none;
+}
