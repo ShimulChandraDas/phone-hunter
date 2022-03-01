@@ -64,3 +64,48 @@ const getPhonesById = (id) => {
         .then(res => res.json())
         .then(data => displayPhonesDetails(data.data))
 };
+
+// display product details function
+const displayPhonesDetails = (product) => {
+    const detailsDiv = document.getElementById('details-display');
+    detailsDiv.textContent = '';
+    const div = document.createElement('div');
+    div.classList.add("row", "shadow")
+    div.innerHTML = `
+    <h2 class="text-center fw-bold  bg-success p-2 text-white">${product.name} </h2>
+    <div class="p-3 col-12  col-lg-6 ">
+       <img src="${product.image}" class="card-img-top" alt=""/>
+       <p class="text-danger">${product.releaseDate ? product.releaseDate : 'release date not found'}</p>
+       <ul class="list-group"> 
+       <li class="list-group-item text-center bg-info text-white"> <h5>Main Features</h5></li>
+       <li class="list-group-item"><h6> ChipSet: ${product.mainFeatures.chipSet} </h6></li>
+       <li class="list-group-item"><h6> Display Size: ${product.mainFeatures.displaySize} </h6></li>
+       <li class="list-group-item"><h6> ROM/RAM: ${product.mainFeatures.memory} </h6></li>
+       </ul>
+        
+    </div>
+    <div class=" p-3 col-12 col-lg-6 ">
+         <ul class="list-group">
+         <li class="list-group-item text-center bg-info text-white"> <h5>Sensors</h5></li>
+            <div class="border rounded p-2 m-2">
+            <small>${product.mainFeatures.sensors[0]} </small>,
+            <small>${product.mainFeatures.sensors[1]} </small>,
+            <small>${product.mainFeatures.sensors[2]} </small>,
+            <small>${product.mainFeatures.sensors[3]} </small>,
+            <small>${product.mainFeatures.sensors[4]} </small>,
+            <small>${product.mainFeatures.sensors[5]} </small>.
+            <div>
+        </ul>
+         
+         <ul class="list-group">
+         <li class="list-group-item text-center bg-info text-white"> <h5>Others Information</h5></li>
+            <li class="list-group-item"><h6>Bluetooth: ${product.others?.Bluetooth} </h6></li>
+            <li class="list-group-item"><h6> GPS: ${product.others?.GPS} </h6></li>
+            <li class="list-group-item"><h6> Radio: ${product.others?.Radio} </h6></li>
+            <li class="list-group-item"><h6> USB: ${product.others?.USB} </h6></li>
+            <li class="list-group-item"><h6> WLAN: ${product.others?.WLAN} </h6></li>
+         </ul>
+    </div>
+    `;
+    detailsDiv.appendChild(div);
+};
