@@ -1,9 +1,11 @@
-// get input search input value and dynamic url function 
+/* get input search input value by api url */
 const getPhones = () => {
+
     // show spinner
     document.getElementById('spinner').style.display = 'block'
     const inputField = document.getElementById('search-input').value;
     if (inputField == '') {
+
         // show empty error
         document.getElementById('empty-error').style.display = 'block';
         document.getElementById('spinner').style.display = 'none'
@@ -12,6 +14,7 @@ const getPhones = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => displayPhones(data.data))
+
         //clear input value
         document.getElementById('search-input').value = '';
 
@@ -65,7 +68,7 @@ const getPhonesById = (id) => {
         .then(data => displayPhonesDetails(data.data))
 };
 
-// display product details function
+/* display product details function */
 const displayPhonesDetails = (product) => {
     const detailsDiv = document.getElementById('details-display');
     detailsDiv.textContent = '';
@@ -111,3 +114,5 @@ const displayPhonesDetails = (product) => {
     `;
     detailsDiv.appendChild(div);
 };
+
+/* End JS Coding */
